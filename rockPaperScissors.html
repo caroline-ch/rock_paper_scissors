@@ -1,0 +1,81 @@
+<html>
+    <script>
+        function chooseNumber(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+        
+        function computerPlay() {
+            var choices = ["Rock", "Paper", "Scissors"];
+                return choices[chooseNumber(3)];
+        }
+        function playRound(playerSelection, computerSelection) {
+            player = playerSelection.toLowerCase();
+            computer = computerSelection.toLowerCase();
+            if (player == "scissors") {
+                if (computer == "scissors") {
+                    return "It's a tie";
+                }
+                if (computer == "rock") {
+                    return "You lose";
+                }
+                if (computer == "paper") {
+                    return "You win!";
+                }
+            }
+            if (player == "rock") {
+                if (computer == "rock") {
+                    return "It's a tie";
+                }
+                if (computer == "paper") {
+                    return "You lose";
+                }
+                if (computer == "scissors") {
+                    return "You win!";
+                }
+            }
+            if (player == "paper") {
+                if (computer == "paper") {
+                    return "It's a tie";
+                }
+                if (computer == "scissors") {
+                    return "You lose";
+                }
+                if (computer == "rock") {
+                    return "You win!";
+                }
+            }
+            else {
+                return "You need to select Rock, Paper, or Scissors!";
+            }
+        }
+
+
+        function game() {
+            let counter = 0;
+            let winCounter = 0;
+            let loseCounter = 0;
+            let tieCounter = 0;
+            while (counter < 5) {
+                choice = prompt("Rock, Paper, or Scissors?");
+                games = playRound(choice, computerPlay());
+                console.log(games);
+                if (games == "You win!") {
+                    winCounter++;
+                    counter++;
+                }
+                if (games == "You lose") {
+                    loseCounter++;
+                    counter++;
+                }
+                if (games == "It's a tie") {
+                    tieCounter++;
+                    counter++;
+                }
+            }
+            return `You won a total of ${winCounter} times. You lost a total of ${loseCounter} times. You tied a total of ${tieCounter} times.`;
+        }
+ 
+    </script>
+    
+
+</html>
